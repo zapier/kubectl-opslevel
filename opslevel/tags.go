@@ -71,6 +71,18 @@ func (client *Client) AssignTagsForAlias(alias string, tags map[string]string) (
 	return client.AssignTags(input)
 }
 
+func (client *Client) AssignTagForAlias(alias string, key string, value string) ([]Tag, error) {
+	input := TagAssignInput{
+		Alias: alias,
+		Tags:  []TagInput{},
+	}
+	input.Tags = append(input.Tags, TagInput{
+		Key:   key,
+		Value: value,
+	})
+	return client.AssignTags(input)
+}
+
 func (client *Client) AssignTagsForId(id graphql.ID, tags map[string]string) ([]Tag, error) {
 	input := TagAssignInput{
 		Id:   graphql.ID(id),
@@ -82,6 +94,18 @@ func (client *Client) AssignTagsForId(id graphql.ID, tags map[string]string) ([]
 			Value: value,
 		})
 	}
+	return client.AssignTags(input)
+}
+
+func (client *Client) AssignTagForId(id graphql.ID, key string, value string) ([]Tag, error) {
+	input := TagAssignInput{
+		Id:   graphql.ID(id),
+		Tags: []TagInput{},
+	}
+	input.Tags = append(input.Tags, TagInput{
+		Key:   key,
+		Value: value,
+	})
 	return client.AssignTags(input)
 }
 

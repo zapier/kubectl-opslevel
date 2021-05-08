@@ -5,24 +5,16 @@ import (
 )
 
 type Service struct {
-	Aliases []graphql.String `json:"aliases"`
-	//CheckStats
-	//Dependencies
-	//Dependents
-	Description graphql.String `json:"description"`
-	Framework   graphql.String `json:"framework"`
-	Id          graphql.ID     `json:"id"`
-	Language    graphql.String `json:"language"`
-	Lifecycle   Lifecycle      `json:"lifecycle"`
-	Name        graphql.String `json:"name"`
-	Owner       Team           `json:"owner"`
-	Product     graphql.String `json:"product"`
-	//Repositories
-	Tags struct {
-		Nodes []Tag
-	} `json:"tags"`
-	Tier Tier `json:"tier"`
-	//Tools
+	Aliases     []graphql.String `json:"aliases"`
+	Description graphql.String   `json:"description"`
+	Framework   graphql.String   `json:"framework"`
+	Id          graphql.ID       `json:"id"`
+	Language    graphql.String   `json:"language"`
+	Lifecycle   Lifecycle        `json:"lifecycle"`
+	Name        graphql.String   `json:"name"`
+	Owner       Team             `json:"owner"`
+	Product     graphql.String   `json:"product"`
+	Tier        Tier             `json:"tier"`
 }
 
 type ServiceCreateInput struct {
